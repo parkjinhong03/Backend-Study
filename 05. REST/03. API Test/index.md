@@ -6,7 +6,7 @@
 
 # **API Testing Method**
 
-1. 언어(Python)에 내장된 **HTTP Client를** 이용한 테스트
+1. **언어(Python)에 내장된 HTTP Client를 이용한 테스트**
 
     - **requests**
         - requests 모듈을 사용하면 **특정 URI로 HTTP 요청**을 보낼 수 있으므로, 해당 API가 잘 작동하는지 확인할 수 있다.
@@ -17,4 +17,10 @@
     - **urllib.request**
         - 이 모듈도 가능하지만 위에 나왔던 **requests 사용을 권장**하고 있다.
 
-2. 
+2. **Desktop 도구를 이용한 API 테스트**
+
+    - **Postman**
+    - **Katalon Studio**
+    - **SoapUI**
+    - **Assertible**
+    - **Tricentis Tosca**
