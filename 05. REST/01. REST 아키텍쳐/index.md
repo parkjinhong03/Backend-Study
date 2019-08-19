@@ -42,3 +42,33 @@
     -  Cilent가 자원의 상태에 대한 조작을 요청하면 **Server는 이에 적절한 응답(Representation)** 을 보낸다.
     - REST에서 하나의 자원은 **JSON, XML, TEXT, RSS등** 여러 형태로 나타내어 질 수 있다.
      
+<br>
+
+# REST 특징
+
+1. **Server-Client 구조**
+
+    - 자원이 있는 쪽이 **Server**, 자원을 요청하는 쪽이 **Client가** 된다.
+        - **REST Server**: API 제공 및 비즈니스 로직 및 저장 책임
+        - **Client**: 사용자 인증이나 세션, 로그인 정보를 직접 관리하고 책임진다.
+
+2. **Stateless(무상태)**
+
+    - HTTP 프로토콜은 Stateless Protocol이므로 REST 역시 무상태성을 갖는다.
+    - Client의 context를 Server에 저장하지 않는다.
+    - Server는 각각의 요청을 완전히 별개의 것으로 인식하고 처리한다.
+
+3. **Cacheable(캐시 처리 가능)**
+
+    - 웹 표준 HTTP 프로토콜을 그대로 사용하므로 웹에서 사용하는 기존의 인프라를 그대로 활용할 수 있다.
+    - **대량의 요청을 효율적으로 처리**하기 위해 **캐시가** 요구된다.
+
+4. **Layered System(계층화)**
+
+    - Client는 REST API Server만 호출한다.
+    - API Server는 순수 비즈니스 로직을 수행하고 그 앞단에 **보안, 로드밸런싱, 암호화, 사용자 인증** 등을 추가해서 구조상의 유연성을 줄 수 있다.
+
+5. **Uniform interface(인터페이스 일관성)**
+
+    - URI로 지정한 Resource에 대한 조작을 **통일되고 한정적인 인터페이스**로 수행한다.
+    - HTTP 표준 프로토콜에 따르는 모든 플랫폼에서 사용이 가능하다.
