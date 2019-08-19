@@ -5,7 +5,7 @@
 
 - **REST API 정의**
     - **REST 기반**으로 서비스 API를 구현한 것
-    - 최근 **OpenAPI**(구글 맵, RioT)등을 제공하는 업체 대부분은 **REST API**를 제공한다.
+    - 최근 **OpenAPI**(구글 맵, RioT)등을 제공하는 업체 대부분은 **REST API**를 제공한다. 
 
 <br>
 
