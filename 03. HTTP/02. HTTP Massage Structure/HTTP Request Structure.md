@@ -1,0 +1,82 @@
+# HTTP 요청 구조
+
+**HTTP 요청 구조**
+~~~
+POST /ping HTTP/1.1                    - Start Line
+
+Accept: */*
+Acception-encoding: gzip, deflate      - Headers
+Connection: keep-alive
+Content-Length: 83
+Content-Type: application/json
+Host: localhost:500
+User-Agent: HTTPie/1.0.3
+
+
+{
+    "id": "jinhong0719",               - Body
+    "password": "park0719"
+}
+~~~
+
+## 1. **Start Line** 
+이름 그대로 HTTP 요청의 시작줄이다.
+- **HTTP 메소드**
+    - 해당 HTTP 요청이 의도하는 액션(action)을 정의하는 부분이다.
+    - HTTP에는 GET, POST, DELETE, PUT 등 여러 메소드가 있다.
+
+- **Request target**
+    - 해당 HTTP 요청이 전성되는 목표 주소를 말한다.
+    - 예를 들어 localhost:5000/ping HTTP 요청의 경우 "/ping"이 된다.
+
+- **HTTP version**
+    - 이름 그대로 해당 요청의 HTTP 버전을 나타낸다.
+    - HTTP 버전에 따라 요청 메세지의 구조나 데이터가 다를 수 있기 때문에 명시해야한다.
+
+<br>
+
+## 2. **Header**
+헤더 정보는 HTTP 요청 그 자체에 대한 정보를 담고 있다.  
+헤더는 파이썬의 dictionary처럼 key와 value가 :로 연결 되어있다.
+- **Host**
+    - 요청이 전송되는 target의 호스트의 **URL주소**를 알려 주는 헤더이다.
+    - 예) localhost:5000
+
+- **User-agent**
+    - 요청을 보내는 **클라이언트**의 관한 정보
+    - 예) HTTPie/1.0.3
+
+- **Accept**
+    - 해당 요청이 받을 수 있는 응답(response) body 데이터 타입을 알려주는 헤더.
+    - **MIME(Multipurposee Internet Mail Extensions)** type이 value로 지정된다.
+        - application/json
+        - applicatoin/xml
+        - application/octet-stream
+        - text/csv
+        - text/html
+        - image/jpeg
+        - image/png
+        - text/plain
+    - **\*/\*** -> 모든 응답 데이터 타입 허용
+    - **application/json** -> json 형태의 응답 데이터만 혀용
+
+- **Connection**
+    - 해당 요청이 끝난 후, 클라이언트와 서버의 네트워크 연결을 유지할 것인지, 끊을 것인지에 대해 알려주는 헤더
+    - 네트워크 연결하는 데에 시간이 오래 걸리기 때문에 해당 연결을 재사용하는 것을 권장한다.
+    - **Connection: keep-alive** -> 계속해서 HTTP 요청을 보낼 것이니 연결을 유지해라.
+    - **Connection: close** -> 더 이상 요청을 보내지 않을 예정이니 연결을 닫아도 된다.
+
+- **Content-Type**
+    - HTTP 요청을 보내는 메세지 body의 타입을 알려주는 헤더이다.
+    - Accept와 같이 MIME type이 들어간다.
+    - EX) HTTP 요청이 JSON 데이터를 전송 -> **Content-Type: application/json**
+
+- **Content-Length**
+    - HTTP 요청이 보내지는 body의 총 사이즈를 알려 주는 헤더이다.
+    - EX) **Content-Length: 257**
+
+<br>
+
+## 3. **Body**
+HTTP 요청 메세지에서 Body 부분은 HTTP 요청이 전송하는 데이터를 담고 있는 부분이다.  
+전송하는 데이터가 없다면 Body 부분은 비어 있게 된다.
